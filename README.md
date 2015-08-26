@@ -13,12 +13,22 @@ building NodeJS with Intl support.
 
 ## Usage
 
+Pass an array of names:
+
 ```javascript
-myanmarNameSort([
+output = myanmarNameSort([
   "ဦးလှမြင့်",
   "ဦးမော"
 ]);
 > ["ဦးမော", "ဦးလှမြင့်"]
+```
+
+Pass an array of objects, and a function to extract the name:
+
+```javascript
+output = myanmarNameSort(candidates, function(candidate) {
+  return candidate.full_name;
+});
 ```
 
 ## License

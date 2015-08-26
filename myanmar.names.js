@@ -1,4 +1,4 @@
-function myanmarNameSort(namelist) {
+function myanmarNameSort(namelist, namefinder) {
   if (typeof Intl === "undefined" || typeof Intl.Collator === "undefined") {
     throw "Intl.Collator not available";
   }
@@ -46,8 +46,12 @@ function myanmarNameSort(namelist) {
   var collator = new Intl.Collator("my-MM");
 
   return namelist.sort(function(a, b) {
-    a = trim(a);
-    b = trim(b);
+    if (namefinder && typeof namefinder === 'function') {
+      a = namefinder(a);
+      b = namefinder(b);
+    }
+    a = trim("" + a);
+    b = trim("" + b);
     for (var p = 0; p < prefixes.length; p++) {
       if (a.indexOf(prefixes[p]) === 0) {
         a = trim(a.replace(prefixes[p], ''));
