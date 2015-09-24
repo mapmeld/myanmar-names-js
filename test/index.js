@@ -25,9 +25,9 @@ describe("match", function() {
   });
 
   it("handles a different-prefix match", function() {
-    var ret = myanmarNameMatch('ဦးလှမြင့်', ["ဒေါက်တလှမြင့်","ဦးမော"]);
+    var ret = myanmarNameMatch('ဦးလှမြင့်', ["ဒေါက်တာလှမြင့်","ဦးမော"]);
     assert.equal(ret.length, 1);
-    assert.equal(ret[0], 'ဒေါက်တလှမြင့်');
+    assert.equal(ret[0], 'ဒေါက်တာလှမြင့်');
   });
 
   it("handles one rough match", function() {
