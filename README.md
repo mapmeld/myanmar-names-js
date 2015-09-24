@@ -26,6 +26,12 @@ output = myanmarNameSort(candidates, function(candidate) {
 });
 ```
 
+In NodeJS:
+
+```javascript
+myanmarNameSort = require("myanmar-names");
+```
+
 ## License
 
 Prefixes [from Wikipedia](https://en.wikipedia.org/wiki/Burmese_names) under a Creative Commons license

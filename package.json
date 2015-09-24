@@ -1,5 +1,5 @@
 {
-  "name": "myanmar-names-js",
+  "name": "myanmar-names",
   "version": "2.0.0",
   "description": "Sort and search for Myanmar / Burmese names",
   "main": "myanmar.names.js",
