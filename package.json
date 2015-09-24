@@ -1,0 +1,31 @@
+{
+  "name": "myanmar-names-js",
+  "version": "2.0.0",
+  "description": "Sort and search for Myanmar / Burmese names",
+  "main": "myanmar.names.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapmeld/myanmar-names-js.git"
+  },
+  "keywords": [
+    "myanmar",
+    "burma",
+    "burmese",
+    "i18n"
+  ],
+  "author": "The Asia Foundation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mapmeld/myanmar-names-js/issues"
+  },
+  "homepage": "https://github.com/mapmeld/myanmar-names-js#readme",
+  "dependencies": {
+    "myanmar-sort": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}

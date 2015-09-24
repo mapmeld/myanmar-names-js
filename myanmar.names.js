@@ -1,6 +1,16 @@
+if (typeof module !== 'undefined' && typeof require === 'function') {
+  var myanmarSort = require('myanmar-sort');
+}
+
 function myanmarNameSort(namelist, namefinder) {
-  if (typeof Intl === "undefined" || typeof Intl.Collator === "undefined") {
-    throw "Intl.Collator not available";
+  var collator = null;
+  if (typeof myanmarSort === 'undefined') {
+    if (typeof Intl === "undefined" || typeof Intl.Collator === "undefined") {
+      throw "Intl.Collator and myanmar-sort module not available";
+    } else {
+      // Intl.Collator available on the client side
+      collator = new Intl.Collator("my-MM");
+    }
   }
   var prefixes = [
     "အရှင်",
@@ -42,9 +52,6 @@ function myanmarNameSort(namelist, namefinder) {
     return x.replace(/^\s+|\s+$/gm,'');
   }
 
-  // Intl.Collator has to happen on the client side
-  var collator = new Intl.Collator("my-MM");
-
   return namelist.sort(function(a, b) {
     if (namefinder && typeof namefinder === 'function') {
       a = namefinder(a);
@@ -60,6 +67,14 @@ function myanmarNameSort(namelist, namefinder) {
         b = trim(b.replace(prefixes[p], ''));
       }
     }
-    return collator.compare(a, b);
+    if (collator) {
+      return collator.compare(a, b);
+    } else {
+      return myanmarSort(a, b);
+    }
   });
+}
+
+if (typeof module !== "undefined") {
+  module.exports = myanmarNameSort;
 }
