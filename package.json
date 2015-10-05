@@ -1,6 +1,6 @@
 {
   "name": "myanmar-names",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Sort and search for Myanmar / Burmese names",
   "main": "myanmar.names.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/mapmeld/myanmar-names-js#readme",
   "dependencies": {
-    "myanmar-sort": "^2.0.0"
+    "myanmar-sort": "^2.1.0"
   },
   "devDependencies": {
     "mocha": "^2.2.5"

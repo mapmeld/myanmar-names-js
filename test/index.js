@@ -1,5 +1,6 @@
 var assert = require("assert");
 var myanmarNameSort = require("../myanmar.names.js").sort;
+var candidates = require("./names.json");
 
 describe("sort", function() {
   it("handles a name sort", function() {
@@ -11,6 +12,10 @@ describe("sort", function() {
     var ret = myanmarNameSort(['ဒေါက်တာလှမြင့်', 'ဦးမော']);
     assert.equal(ret[0], 'ဦးမော');
     assert.equal(ret[1], 'ဒေါက်တာလှမြင့်');
+  });
+  
+  it("sorts all names", function() {
+    myanmarNameSort(candidates);
   });
 });
 
