@@ -1,6 +1,6 @@
 {
   "name": "myanmar-names",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Sort and search for Myanmar / Burmese names",
   "main": "myanmar.names.js",
   "scripts": {

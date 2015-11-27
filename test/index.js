@@ -1,10 +1,18 @@
 var assert = require("assert");
 var myanmarNameSort = require("../myanmar.names.js").sort;
+var sortMethod = require("../myanmar.names.js").sortMethod;
 var candidates = require("./names.json");
 
 describe("sort", function() {
+  it("is using a good method to sort", function() {
+    var ret = sortMethod();
+    assert.equal(ret == "Intl.Collator" || ret == "myanmar-sort module", true);
+    console.log("This server will sort using " + ret);
+  });
+
   it("handles a name sort", function() {
-    var ret = myanmarNameSort(['ဦးလှမြင့်', 'ဦးမော']);    assert.equal(ret[0], 'ဦးမော');
+    var ret = myanmarNameSort(['ဦးလှမြင့်', 'ဦးမော']);
+    assert.equal(ret[0], 'ဦးမော');
     assert.equal(ret[1], 'ဦးလှမြင့်');
   });
 
@@ -13,7 +21,7 @@ describe("sort", function() {
     assert.equal(ret[0], 'ဦးမော');
     assert.equal(ret[1], 'ဒေါက်တာလှမြင့်');
   });
-  
+
   it("sorts all names", function() {
     myanmarNameSort(candidates);
   });

@@ -1,5 +1,7 @@
-if (typeof module !== 'undefined' && typeof require === 'function') {
-  var myanmarSort = require('myanmar-sort');
+var myanmarSort;
+
+if (typeof require === "function" && (typeof Intl == "undefined" || typeof Intl.Collator == "undefined" || !Intl.Collator.supportedLocalesOf(["my-MM", "my"]).length)) {
+  myanmarSort = require("myanmar-sort");
 }
 
 function trim(x) {
@@ -50,14 +52,28 @@ function removePrefixes (name) {
   return name;
 }
 
+function sortMethod() {
+  if (myanmarSort) {
+    return "myanmar-sort module";
+  } else if (typeof Intl === "undefined" || typeof Intl.Collator === "undefined") {
+    throw "Intl.Collator and myanmar-sort module not available";
+  } else if (!Intl.Collator.supportedLocalesOf(["my-MM", "my"]).length) {
+    throw "Intl.Collator does not support Myanmar language locales";
+  } else {
+    return "Intl.Collator";
+  }
+}
+
 function myanmarNameSort(namelist, namefinder) {
   var collator = null;
-  if (typeof myanmarSort === 'undefined') {
+  if (!myanmarSort) {
     if (typeof Intl === "undefined" || typeof Intl.Collator === "undefined") {
       throw "Intl.Collator and myanmar-sort module not available";
+    } else if (!Intl.Collator.supportedLocalesOf(["my-MM", "my"]).length) {
+      throw "Intl.Collator does not support Myanmar language locales";
     } else {
       // Intl.Collator available on the client side
-      collator = new Intl.Collator("my-MM");
+      collator = new Intl.Collator(["my-MM", "my"]);
     }
   }
 
@@ -197,6 +213,7 @@ if (typeof module !== "undefined") {
     sort: myanmarNameSort,
     match: myanmarNameMatch,
     removePrefixes: removePrefixes,
-    calculateScore: calculateScore
+    calculateScore: calculateScore,
+    sortMethod: sortMethod
   };
 }
