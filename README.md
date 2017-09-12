@@ -1,5 +1,7 @@
 # myanmar-names.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mapmeld/myanmar-names-js.svg)](https://greenkeeper.io/)
+
 A NodeJS module with three features:
 
 - Sort a list of Myanmar / Burmese names according to official alphabetic order
