@@ -26,6 +26,6 @@
     "myanmar-sort": "^2.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^3.5.3"
   }
 }
